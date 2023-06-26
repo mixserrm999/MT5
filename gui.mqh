@@ -27,7 +27,7 @@
 #define BUTTON_HEIGHT                       (20)      // size by Y coordinate
 //--- for the indication area
 #define EDIT_HEIGHT                         (20)      // size by Y coordinate
-#define INPUT_WIDTH                         (100)
+#define INPUT_WIDTH                         (70)
 #define INPUT_HEIGHT                        (20)
 //--- for group controls
 //+------------------------------------------------------------------+
@@ -42,10 +42,25 @@ private:
    CButton           m_button2;                       // the button object
    CButton           m_button3;                       // the fixed button object
    CEdit             m_numberEdit;                    // number
-   CEdit             m_input;
+   CEdit             m_input1;
+   CEdit             m_input2;
+   CEdit             m_input3;
+   CEdit             m_input4;
+   
+   CEdit             m_input5;
+   CEdit             m_input6;
+   CEdit             m_input7;
+   CEdit             m_input8;
 
 public:
-   bool              CreateInputField(void);
+   bool              CreateInputField1(void);
+   bool              CreateInputField2(void);
+   bool              CreateInputField3(void);
+   bool              CreateInputField4(void);
+   bool              CreateInputField5(void);
+   bool              CreateInputField6(void);
+   bool              CreateInputField7(void);
+   bool              CreateInputField8(void);
                      CControlsDialog(void);
                     ~CControlsDialog(void);
    //--- create
@@ -100,7 +115,21 @@ bool CControlsDialog::Create(const long chart,const string name,const int subwin
       return(false);
    if(!CreateButton3())
       return(false);
-   if (!CreateInputField()) // Create the input field
+   if (!CreateInputField1()) // Create the input field
+      return(false);
+   if (!CreateInputField2()) // Create the input field
+      return(false);
+   if (!CreateInputField3()) // Create the input field
+      return(false);
+   if (!CreateInputField4()) // Create the input field
+      return(false);
+   if (!CreateInputField5()) // Create the input field
+      return(false);
+   if (!CreateInputField6()) // Create the input field
+      return(false);
+   if (!CreateInputField7()) // Create the input field
+      return(false);
+   if (!CreateInputField8()) // Create the input field
       return(false);
 //--- succeed
    return(true);
@@ -125,24 +154,6 @@ bool CControlsDialog::CreateEdit(void)
 //--- succeed
    return(true);
   }
-bool CControlsDialog::CreateInputField(void)
-{
-//--- coordinates
-   int x1=INDENT_LEFT;
-   int y1=INDENT_TOP+4*(EDIT_HEIGHT+CONTROLS_GAP_Y); // Adjust the y-coordinate as needed
-   int x2=x1+INPUT_WIDTH; // INPUT_WIDTH is the width of the input field
-   int y2=y1+INPUT_HEIGHT; // INPUT_HEIGHT is the height of the input field
-//--- create
-   if(!m_input.Create(m_chart_id,m_name+"InputField",m_subwin,x1,y1,x2,y2))
-      return(false);
-   if(!m_input.Text("")) // Initialize the input field with an empty string
-      return(false);
-   if(!Add(m_input))
-      return(false);
-//--- succeed
-   return(true);
-}
-
 //+------------------------------------------------------------------+
 //| Create the "Button1" button                                      |
 //+------------------------------------------------------------------+
@@ -187,7 +198,7 @@ bool CControlsDialog::CreateButton2(void)
 //| Create the "Button3" fixed button                                |
 //+------------------------------------------------------------------+
 bool CControlsDialog::CreateButton3(void)
-  {
+{
 //--- coordinates
    int x1=INDENT_LEFT;
    int y1=INDENT_TOP+3*(EDIT_HEIGHT+CONTROLS_GAP_Y);
@@ -203,7 +214,143 @@ bool CControlsDialog::CreateButton3(void)
    m_button3.Locking(true);
 //--- succeed
    return(true);
-  }
+}
+bool CControlsDialog::CreateInputField1(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 1.35 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 1 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input1.Create(m_chart_id, m_name + "InputField1", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input1.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input1))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField2(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 2.15 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 1 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input2.Create(m_chart_id, m_name + "InputField2", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input2.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input2))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField3(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 2.95 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 1 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input3.Create(m_chart_id, m_name + "InputField3", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input3.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input3))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField4(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 3.75 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 1 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input4.Create(m_chart_id, m_name + "InputField4", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input4.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input4))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField5(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 1.35 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 2 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input5.Create(m_chart_id, m_name + "InputField5", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input5.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input5))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField6(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 2.15 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 2 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input6.Create(m_chart_id, m_name + "InputField6", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input6.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input6))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField7(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 2.95 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 2 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input7.Create(m_chart_id, m_name + "InputField7", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input7.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input7))
+      return (false);
+   //--- succeed
+   return (true);
+}
+bool CControlsDialog::CreateInputField8(void)
+{
+   //--- coordinates
+   int x1 = INDENT_LEFT + 3.75 * BUTTON_WIDTH + CONTROLS_GAP_X; // ปรับค่า x1 เพิ่มอีก BUTTON_WIDTH และ CONTROLS_GAP_X เพื่อให้ช่อง input มาต่อท้ายด้านขวาของ button3
+   int y1 = INDENT_TOP + 2 * (EDIT_HEIGHT + CONTROLS_GAP_Y);
+   int x2 = x1 + INPUT_WIDTH;
+   int y2 = y1 + INPUT_HEIGHT;
+   //--- create
+   if (!m_input8.Create(m_chart_id, m_name + "InputField8", m_subwin, x1, y1, x2, y2))
+      return (false);
+   if (!m_input8.Text("")) // Initialize the input field with an empty string
+      return (false);
+   if (!Add(m_input8))
+      return (false);
+   //--- succeed
+   return (true);
+}
 //+------------------------------------------------------------------+
 //| Event handler                                                    |
 //+------------------------------------------------------------------+
